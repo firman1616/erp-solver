@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Dashboard extends CI_Controller
+class User extends CI_Controller
 {
 
     public function __construct()
@@ -12,15 +12,14 @@ class Dashboard extends CI_Controller
 
         //     redirect(base_url("login"));
         // }
-        $this->load->model('M_local', 'local');
     }
 
     public function index()
     {
         $data = [
-            'title' => 'Dashboard',
-            'conten' => 'conten/dashboard',
-            'problem_list' => $this->local->get_data_db2('tbl_master_solver')
+            'title' => 'User',
+            'conten' => 'conten/users',
+            'list_user' => $this->m_data->get_data('users')
         ];
 
         $this->load->view('template/conten', $data);

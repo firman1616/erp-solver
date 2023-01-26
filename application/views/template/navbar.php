@@ -19,9 +19,15 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="<?= site_url('Dashboard') ?>">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Problem List</span></a>
+            </li>
+
+            <li class="nav-item active">
+                <a class="nav-link" href="<?= site_url('Master') ?>">
+                    <i class="fas fa-fw fa-cogs"></i>
+                    <span>Master Problem</span></a>
             </li>
 
             <!-- Divider -->

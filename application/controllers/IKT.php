@@ -27,14 +27,27 @@ class IKT extends CI_Controller
         // $this->ikt->unlock($ikt);
         $table = 'prod.work_order_weaving';
         $data = ['wow_status' => '1'];
-        $where = array('wow_no' => $ikt);
+        $where = array(
+            'wow_no' => $ikt,
+        );
         $this->m_data->update_data($table, $data, $where);
+        $this->session->set_flashdata('wow', 'Opened');
         redirect('IKT');
     }
 
     public function lock_ikt($ikt)
     {
-        $this->ikt->lock($ikt);
+        // $this->ikt->lock($ikt);
+        // $tanggal = date('Y-m-d HH:ii:ss');
+        $table = 'prod.work_order_weaving';
+        $data = [
+            'wow_status' => '3',
+            'confirmed_at' => date('Y-m-d H:i:s'),
+            'confirmed_by' => '387'
+        ];
+        $where = array('wow_no' => $ikt);
+        $this->m_data->update_data($table, $data, $where);
+        $this->session->set_flashdata('wow', 'Confirmed');
         redirect('IKT');
     }
 }

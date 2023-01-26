@@ -4,6 +4,18 @@
     <!-- Page Heading -->
     <h1 class="h3 mb-4 text-gray-800">List IKT</h1>
 
+    <?php
+    if ($this->session->flashdata('wow')) { ?>
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            The Work Order Weaving, Success update to <strong><?php echo $this->session->flashdata('wow') ?></strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    <?php }
+    ?>
+
+
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
@@ -19,6 +31,7 @@
                             <th>Date</th>
                             <th>No. IKT</th>
                             <th>No. Bukti</th>
+                            <th>Length</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -43,6 +56,7 @@
                                 <td><?= date('d M Y', strtotime($row->wow_date)) ?></td>
                                 <td><?= $row->wow_no ?></td>
                                 <td><?= $row->pattern_no ?></td>
+                                <td><?= number_format($row->length) ?></td>
                                 <td>
                                     <button type="submit" class="btn btn-warning"><i class="fa fa-edit"></i></button>
                                     <?php if ($status != 1) { ?>
