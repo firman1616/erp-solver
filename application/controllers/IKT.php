@@ -50,4 +50,15 @@ class IKT extends CI_Controller
         $this->session->set_flashdata('wow', 'Confirmed');
         redirect('IKT');
     }
+
+    public function v_edit_data($ikt)
+    {
+        $data = [
+            'title' => 'Edit WOW',
+            'conten' => 'conten/edit_wow',
+            'edit_ikt' => $this->m_data->get_data_by_id('prod.work_order_weaving', array('wow_no' => $ikt)),
+        ];
+
+        $this->load->view('template/conten', $data);
+    }
 }

@@ -38,6 +38,7 @@
                     <tbody>
                         <?php
                         $x = 1;
+                        // $a = 1;
                         foreach ($list_wow->result() as $row) {
                             $status = $row->wow_status ?>
                             <tr>
@@ -58,7 +59,7 @@
                                 <td><?= $row->pattern_no ?></td>
                                 <td><?= number_format($row->length) ?></td>
                                 <td>
-                                    <button type="submit" class="btn btn-warning"><i class="fa fa-edit"></i></button>
+                                    <a href="<?= base_url('IKT/v_edit_data/' . $row->wow_no) ?>" class="btn btn-warning"><i class="fa fa-edit"></i></a>
                                     <?php if ($status != 1) { ?>
                                         <a href="<?= base_url('IKT/unlock_ikt/' . $row->wow_no) ?>" class="btn btn-danger"><i class="fa fa-lock-open"></i></a>
                                     <?php } else { ?>
