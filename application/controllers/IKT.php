@@ -61,4 +61,33 @@ class IKT extends CI_Controller
 
         $this->load->view('template/conten', $data);
     }
+
+    public function update_wow($ikt)
+    {
+        $table = 'prod.work_order_weaving';
+        $data = [
+            'wow_no' => $this->input->post('ikt'),
+            'pattern_no' => $this->input->post('pattern')
+        ];
+        $where = array('wow_no' => $ikt);
+        $this->m_data->update_data($table, $data, $where);
+        $this->session->set_flashdata('wow', 'Updated');
+        redirect('IKT');
+    }
+
+    public function cancel($ikt)
+    {
+        // $this->ikt->lock($ikt);
+        // $tanggal = date('Y-m-d HH:ii:ss');
+        $table = 'prod.work_order_weaving';
+        $data = [
+            'wow_status' => '2',
+            'deleted_at' => date('Y-m-d H:i:s'),
+            // 'confirmed_by' => '387'
+        ];
+        $where = array('wow_no' => $ikt);
+        $this->m_data->update_data($table, $data, $where);
+        $this->session->set_flashdata('wow', 'Deleted');
+        redirect('IKT');
+    }
 }

@@ -59,14 +59,17 @@
                                 <td><?= $row->pattern_no ?></td>
                                 <td><?= number_format($row->length) ?></td>
                                 <td>
-                                    <a href="<?= base_url('IKT/v_edit_data/' . $row->wow_no) ?>" class="btn btn-warning"><i class="fa fa-edit"></i></a>
+                                    <a href="<?= base_url('IKT/v_edit_data/' . $row->wow_no) ?>" class="btn btn-warning" aria-disabled="true"><i class="fa fa-edit"></i></a>
+
+
                                     <?php if ($status != 1) { ?>
-                                        <a href="<?= base_url('IKT/unlock_ikt/' . $row->wow_no) ?>" class="btn btn-danger"><i class="fa fa-lock-open"></i></a>
+                                        <a href="<?= base_url('IKT/unlock_ikt/' . $row->wow_no) ?>" class="btn btn-primary"><i class="fa fa-lock-open"></i></a>
                                     <?php } else { ?>
                                         <a href="<?= base_url('IKT/lock_ikt/' . $row->wow_no) ?>" class="btn btn-danger"><i class="fa fa-lock"></i></a>
                                     <?php } ?>
                                     <!-- <button type="button" class="btn btn-danger"><i class="fa fa-lock-open"></i></button> -->
-                                    <button type="button" class="btn btn-warning"><i class="fa fa-trash"></i></button>
+                                    <a href="<?= base_url('IKT/cancel/' . $row->wow_no) ?>" class="btn btn-danger" title="Cancel WOW"><i class="fa fa-trash"></i></a>
+                                    <!-- <button type="button" class="btn btn-warning"><i class="fa fa-trash"></i></button> -->
                                 </td>
                             </tr>
                         <?php } ?>
