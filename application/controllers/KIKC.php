@@ -20,4 +20,28 @@ class KIKC extends CI_Controller
 
         $this->load->view('template/conten', $data);
     }
+
+    public function v_edit_data($kikc)
+    {
+        $data = [
+            'title' => 'Edit KIKC',
+            'conten' => 'conten/edit_kikc',
+            'edit_kikc' => $this->m_data->get_data_by_id('prod.work_order_dyeing', array('id' => $kikc)),
+        ];
+
+        $this->load->view('template/conten', $data);
+    }
+
+    public function update_kikc($kikc)
+    {
+        $table = 'prod.work_order_dyeing';
+        $data = [
+            'wod_no' => $this->input->post('kikc'),
+            'ref_no' => $this->input->post('kikc')
+        ];
+        $where = array('wod_no' => $kikc);
+        $this->m_data->update_data($table, $data, $where);
+        $this->session->set_flashdata('kikc', 'Updated');
+        redirect('KIKC');
+    }
 }

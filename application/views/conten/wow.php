@@ -7,7 +7,7 @@
     <?php
     if ($this->session->flashdata('wow')) { ?>
         <div class="alert alert-success alert-dismissible fade show" role="alert">
-            The Work Order Weaving, Success update to <strong><?php echo $this->session->flashdata('wow') ?></strong>
+            The Work Order Weaving, Success to <strong><?php echo $this->session->flashdata('wow') ?></strong>
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
