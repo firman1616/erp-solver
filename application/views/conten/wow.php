@@ -31,6 +31,7 @@
                             <th>Date</th>
                             <th>No. IKT</th>
                             <th>No. Bukti</th>
+                            <th>Kd. Prod</th>
                             <th>Length</th>
                             <th>Action</th>
                         </tr>
@@ -57,8 +58,10 @@
                                 <td><?= date('d M Y', strtotime($row->wow_date)) ?></td>
                                 <td><?= $row->wow_no ?></td>
                                 <td><?= $row->pattern_no ?></td>
+                                <td><?= $row->prd_code ?></td>
                                 <td><?= number_format($row->length) ?></td>
                                 <td>
+                                    <a href="<?= site_url('IKT/detail_ikt/' . $row->wow_no) ?>" class="btn btn-success"><i class="fa fa-eye"></i></a>
                                     <a href="<?= base_url('IKT/v_edit_data/' . $row->wow_no) ?>" class="btn btn-warning" aria-disabled="true"><i class="fa fa-edit"></i></a>
 
 

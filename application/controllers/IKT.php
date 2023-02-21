@@ -90,4 +90,14 @@ class IKT extends CI_Controller
         $this->session->set_flashdata('wow', 'Deleted');
         redirect('IKT');
     }
+
+    public function detail_ikt($wow)
+    {
+        $data = [
+            'title' => 'Detail Data IKT',
+            'conten' => 'conten/detail_wow',
+            'detail_ikt' => $this->ikt->detail_ikt($wow),
+        ];
+        $this->load->view('template/conten', $data);
+    }
 }
