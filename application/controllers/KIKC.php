@@ -44,4 +44,32 @@ class KIKC extends CI_Controller
         $this->session->set_flashdata('kikc', 'Updated');
         redirect('KIKC');
     }
+
+    public function reopen($id)
+    {
+        $table = 'prod.work_order_dyeing';
+        $data = [
+            'wow_status' => '1',
+            'confirmed_at' => date('Y-m-d H:i:s'),
+            'confirmed_by' => '387'
+        ];
+        $where = array('wod_no' => $id);
+        $this->m_data->update_data($table, $data, $where);
+        $this->session->set_flashdata('wod', 'Reopen');
+        redirect('KIKC');
+    }
+
+    public function confirm($id)
+    {
+        $table = 'prod.work_order_dyeing';
+        $data = [
+            'wow_status' => '3',
+            'confirmed_at' => date('Y-m-d H:i:s'),
+            'confirmed_by' => '387'
+        ];
+        $where = array('wod_no' => $id);
+        $this->m_data->update_data($table, $data, $where);
+        $this->session->set_flashdata('wod', 'Confirm');
+        redirect('KIKC');
+    }
 }

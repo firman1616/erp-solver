@@ -40,6 +40,11 @@
                                 <td><?= date('d-m-Y', strtotime($row->wod_date)) ?></td>
                                 <td><?= $row->notes ?></td>
                                 <td>
+                                    <?php if ($row->wod_status != '1') { ?>
+                                        <a href="<?= base_url('KIKC/reopen/' . $row->id) ?>" class="btn btn-danger"><i class="fa fa-lock-open"></i></a>
+                                    <?php } else { ?>
+                                        <a href="<?= base_url('KIKC/confirm/' . $row->id) ?>" class="btn btn-danger"><i class="fa fa-lock"></i></a>
+                                    <?php } ?>
                                     <a href="<?= base_url('KIKC/v_edit_data/' . $row->id) ?>" class="btn btn-warning"><i class="fa fa-edit"></i></a>
                                     <button type="button" class="btn btn-danger"><i class="fa fa-trash"></i></button>
                                 </td>
