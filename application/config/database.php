@@ -95,7 +95,7 @@ $db['default'] = array(
 	'save_queries' => TRUE
 );
 
-$db['localhost'] = array(
+$db['lokal'] = array(
 	'dsn'	=> '',
 	'hostname' => 'localhost',
 	'username' => 'root',
@@ -116,4 +116,28 @@ $db['localhost'] = array(
 	'failover' => array(),
 	'save_queries' => TRUE
 );
+
+$db['patrun'] = array(
+	'dsn'	=> '',
+	'hostname' => 'db.atm.net',
+	'username' => 'patrun',
+	'password' => 'patrun451',
+	'database' => 'patrun',
+	'port'	   => '3307',
+	'dbdriver' => 'mysqli',
+	'dbprefix' => '',
+	'pconnect' => FALSE,
+	'db_debug' => (ENVIRONMENT !== 'production'),
+	'cache_on' => FALSE,
+	'cachedir' => '',
+	'char_set' => 'utf8',
+	'dbcollat' => 'utf8_general_ci',
+	'swap_pre' => '',
+	'encrypt' => FALSE,
+	'compress' => FALSE,
+	'stricton' => FALSE,
+	'failover' => array(),
+	'save_queries' => TRUE
+);
+
 // $db2 = $this->load->database('localhost', TRUE);
