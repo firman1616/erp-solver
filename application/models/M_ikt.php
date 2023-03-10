@@ -54,4 +54,9 @@ class M_ikt extends CI_Model
     {
         return $this->db->query("UPDATE prod.work_order_weaving SET wow_status = '3' WHERE wow_no = '$ikt'");
     }
+
+    public function confirm_kikc()
+    {
+        return $this->db->query("UPDATE prod.work_order_dyeing SET wod_status = '3', confirmed_by = '387' WHERE wod_status = '1'");
+    }
 }

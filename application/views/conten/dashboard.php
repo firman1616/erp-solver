@@ -4,6 +4,18 @@
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
     </div>
+
+
+    <?php
+    if ($this->session->flashdata('kikc')) { ?>
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            Success <strong><?php echo $this->session->flashdata('kikc') ?></strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    <?php }
+    ?>
     <!-- Content Row -->
     <div class="row">
         <!-- Earnings (Monthly) Card Example -->

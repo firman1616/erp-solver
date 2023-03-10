@@ -72,4 +72,11 @@ class KIKC extends CI_Controller
         $this->session->set_flashdata('wod', 'Confirm');
         redirect('KIKC');
     }
+
+    public function confirm_kikc()
+    {
+        $this->ikt->confirm_kikc();
+        $this->session->set_flashdata('wod', 'KIKC Update To Confirm');
+        redirect('Dashboard');
+    }
 }
