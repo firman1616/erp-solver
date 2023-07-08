@@ -11,7 +11,7 @@
  Target Server Version : 50733
  File Encoding         : 65001
 
- Date: 17/02/2023 15:22:03
+ Date: 04/07/2023 16:52:34
 */
 
 SET NAMES utf8mb4;
@@ -28,12 +28,15 @@ CREATE TABLE `tbl_master_solver`  (
   `icon` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `link_solver` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_solver`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of tbl_master_solver
 -- ----------------------------
 INSERT INTO `tbl_master_solver` VALUES (1, 'Work Order Weaving', 'IKT Solver', 'fa-swatchbook', 'IKT');
 INSERT INTO `tbl_master_solver` VALUES (2, 'Work Order Dyeing', 'KIKC', 'fa-vials', 'KIKC');
+INSERT INTO `tbl_master_solver` VALUES (3, 'Update No Bukti', 'No Bukti Patrun', 'fa-cogs', 'Katrun');
+INSERT INTO `tbl_master_solver` VALUES (4, 'Confirm All KIKC', 'Confirm KIKC', 'fa-check', 'KIKC/confirm_kikc');
+INSERT INTO `tbl_master_solver` VALUES (5, 'Update Status Param', 'Update Status', 'fa-check-circle', 'ConfirmByParam');
 
 SET FOREIGN_KEY_CHECKS = 1;

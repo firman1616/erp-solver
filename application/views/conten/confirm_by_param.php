@@ -99,12 +99,36 @@
             <!-- Basic Card Example -->
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Update Status By Trans No</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Trans No and Status</h6>
                 </div>
                 <div class="card-body">
-                    The styling for this basic card example is created by using default Bootstrap
-                    utility classes. By using utility classes, the style of the card component can be
-                    easily modified with no need for any custom CSS!
+                    <div class="row">
+                        <div class="col">
+                            <label for="">Status</label>
+                            <select name="status" id="status" class="form-control">
+                                <option value="" disabled selected>--Choose One--</option>
+                                <option value="1">Open</option>
+                                <option value="3">Confirm</option>
+                                <option value="2">Cancel</option>
+                            </select>
+                        </div>
+                        <div class="col">
+                            <label for="">Trans No</label>
+                            <input type="text" class="form-control" name="trans_no" id="trans_no">
+                        </div>
+                    </div>
+                    <br>
+                    <table>
+                        <tr>
+                            <td>
+                                <form action="<?= base_url('ConfirmByParam/confirm_wop') ?>" method="post">
+                                    <div class="col"><input type="hidden" name="status2" id="status2"></div>
+                                    <div class="col"><input type="hidden" name="trans_no2" id="trans_no2"></div>
+                                    <button type="submit" class="btn btn-primary">WOP</button>
+                                </form>
+                            </td>
+                        </tr>
+                    </table>
                 </div>
             </div>
 
@@ -150,5 +174,19 @@
     });
     end.addEventListener('change', function() {
         kikc_e.value = this.value;
+    });
+</script>
+
+
+<script>
+    let status = document.querySelector('#status');
+    let trans_no = document.querySelector('#trans_no')
+    let status2 = document.getElementById('status2');
+    let trans_no2 = document.getElementById('trans_no2')
+    status.addEventListener('change', function() {
+        status2.value = this.value;
+    });
+    trans_no.addEventListener('change', function() {
+        trans_no2.value = this.value;
     });
 </script>

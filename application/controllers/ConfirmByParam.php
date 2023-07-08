@@ -49,4 +49,13 @@ class ConfirmByParam extends CI_Controller
         $this->session->set_flashdata('kikc', 'KIKC Update To Confirm');
         redirect('ConfirmByParam');
     }
+
+    function confirm_wop()
+    {
+        $sts = $this->input->post('status');
+        $trn = $this->input->post('trans_no');
+        $this->confirm->update_status_wop($sts, $trn);
+        $this->session->set_flashdata('wop', 'Status WOP update');
+        redirect('ConfirmByParam');
+    }
 }
