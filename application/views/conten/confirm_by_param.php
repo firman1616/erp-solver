@@ -86,6 +86,13 @@
                                     <button type="submit" class="btn btn-success">KIKC</button>
                                 </form>
                             </td>
+                            <td>
+                                <form action="<?= base_url('ConfirmByParam/confirm_wop_between') ?>" method="post">
+                                    <div class="col"><input type="hidden" name="wop_start" id="wop_start"></div>
+                                    <div class="col"><input type="hidden" name="wop_end" id="wop_end"></div>
+                                    <button type="submit" class="btn btn-success">WOP</button>
+                                </form>
+                            </td>
                         </tr>
                     </table>
                 </div>
@@ -169,11 +176,15 @@
     let end = document.querySelector('#dateend')
     let kikc_s = document.getElementById('kikc_start');
     let kikc_e = document.getElementById('kikc_end')
+    let wop_s = document.getElementById('wop_start');
+    let wop_e = document.getElementById('wop_end')
     start.addEventListener('change', function() {
         kikc_s.value = this.value;
+        wop_s.value = this.value;
     });
     end.addEventListener('change', function() {
         kikc_e.value = this.value;
+        wop_e.value = this.value;
     });
 </script>
 

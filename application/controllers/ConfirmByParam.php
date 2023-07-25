@@ -43,17 +43,26 @@ class ConfirmByParam extends CI_Controller
 
     public function confirm_kikc_between()
     {
-        $start = $this->input->post('datestart');
-        $end = $this->input->post('dateend');
+        $start = $this->input->post('kikc_start');
+        $end = $this->input->post('kikc_end');
         $this->confirm->confirm_kikc_between($start, $end);
         $this->session->set_flashdata('kikc', 'KIKC Update To Confirm');
         redirect('ConfirmByParam');
     }
 
+    public function confirm_wop_between()
+    {
+        $start = $this->input->post('wop_start');
+        $end = $this->input->post('wop_end');
+        $this->confirm->confirm_wop_between($start, $end);
+        $this->session->set_flashdata('wop', 'wop Update To Confirm');
+        redirect('ConfirmByParam');
+    }
+
     function confirm_wop()
     {
-        $sts = $this->input->post('status');
-        $trn = $this->input->post('trans_no');
+        $sts = $this->input->post('status2');
+        $trn = $this->input->post('trans_no2');
         $this->confirm->update_status_wop($sts, $trn);
         $this->session->set_flashdata('wop', 'Status WOP update');
         redirect('ConfirmByParam');
