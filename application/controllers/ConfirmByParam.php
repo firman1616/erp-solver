@@ -67,4 +67,13 @@ class ConfirmByParam extends CI_Controller
         $this->session->set_flashdata('wop', 'Status WOP update');
         redirect('ConfirmByParam');
     }
+
+    function confirm_wom()
+    {
+        $sts = $this->input->post('wom_stat');
+        $trn = $this->input->post('wom_trans');
+        $this->confirm->update_status_wom($sts, $trn);
+        $this->session->set_flashdata('wom', 'Status WOM update');
+        redirect('ConfirmByParam');
+    }
 }

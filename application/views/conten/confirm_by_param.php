@@ -19,6 +19,13 @@
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
+    <?php } elseif ($this->session->flashdata('wow')) { ?>
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            Data <strong><?php echo $this->session->flashdata('wom') ?></strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
     <?php }
     ?>
 
@@ -117,6 +124,7 @@
                                 <option value="1">Open</option>
                                 <option value="3">Confirm</option>
                                 <option value="2">Cancel</option>
+                                <option value="8">Partial</option>
                             </select>
                         </div>
                         <div class="col">
@@ -132,6 +140,13 @@
                                     <div class="col"><input type="hidden" name="status2" id="status2"></div>
                                     <div class="col"><input type="hidden" name="trans_no2" id="trans_no2"></div>
                                     <button type="submit" class="btn btn-primary">WOP</button>
+                                </form>
+                            </td>
+                            <td>
+                                <form action="<?= base_url('ConfirmByParam/confirm_wom') ?>" method="post">
+                                    <div class="col"><input type="hidden" name="wom_stat" id="wom_stat"></div>
+                                    <div class="col"><input type="hidden" name="wom_trans" id="wom_trans"></div>
+                                    <button type="submit" class="btn btn-primary">WOM</button>
                                 </form>
                             </td>
                         </tr>
@@ -194,10 +209,14 @@
     let trans_no = document.querySelector('#trans_no')
     let status2 = document.getElementById('status2');
     let trans_no2 = document.getElementById('trans_no2')
+    let wom_stat = document.getElementById('wom_stat');
+    let wom_trans = document.getElementById('wom_trans')
     status.addEventListener('change', function() {
         status2.value = this.value;
+        wom_stat.value = this.value;
     });
     trans_no.addEventListener('change', function() {
         trans_no2.value = this.value;
+        wom_trans.value = this.value;
     });
 </script>

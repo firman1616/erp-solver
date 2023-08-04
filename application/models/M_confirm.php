@@ -26,4 +26,9 @@ class M_confirm extends CI_Model
     {
         return $this->db->query("UPDATE prod.work_order_preparatory SET wop_status = '$status' WHERE wop_no = '$trans_no'");
     }
+
+    function update_status_wom($status, $trans_no)
+    {
+        return  $this->db->query("UPDATE prod.work_order_marketing SET wom_status = '$status' WHERE wom_no = '$trans_no'");
+    }
 }
